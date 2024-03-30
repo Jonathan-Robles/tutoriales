@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CREDIJOB</title>
+    <style>span{ color:red; font-size: 25px}</style>
+</head>
+<body>
+
+<h2>Tabla Actualizada</h2>
+<p ><span>Número de cuotas - </span><span id="num_cuotas"></span></p>
+<table border="1" id="miTabla">
+    <tr>
+        <th>Fecha</th>
+        <th>Valor</th>
+    </tr>
+    
+</table>
+<span id="totales"></span>
+
+<script>
+var fechaInicio = new Date('2023-08-16');
+    
+var valorInicial=149901, 
+    intervaloDias=15.5,
+    total=0,
+// Obtener la fecha actual
+    fechaHoy = new Date();
+   
+valorInicialString = valorInicial.toLocaleString(
+    "en-US", {    
+                style:"currency", 
+                currency:"USD"
+            });
+    
+    // Calcular el número de intervalos completos desde la fecha de inicio hasta hoy
+    var numIntervalos = Math.floor((fechaHoy - fechaInicio) / (intervaloDias * 24 * 60 * 60 * 1000));
+
+    // Generar filas en la tabla
+    for (var i = 0; i <= numIntervalos; i++) {
+        var nuevaFecha = new Date(fechaInicio);
+          nuevaFecha.setDate(fechaInicio.getDate() + intervaloDias * i);
+          
+        total += valorInicial;
+        // Solo agregar filas para fechas a partir de hoy
+        if (nuevaFecha <= fechaHoy) {
+            var nuevaFila = '<tr><td>' + nuevaFecha.toLocaleDateString('es-ES') + '</td><td>' + valorInicialString + '</td></tr>';
+            document.getElementById('miTabla').innerHTML += nuevaFila;
+        }
+    }
+    document.getElementById('totales').innerHTML = total.toLocaleString("en-US", {style:"currency", currency:"USD"});
+    
+var num = document.getElementsByTagName("tr").length;
+    
+    document.getElementById("num_cuotas").innerHTML = num - 1;
+</script>
+
+</body>
+</html>
