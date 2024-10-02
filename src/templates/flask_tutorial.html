@@ -1,0 +1,75 @@
+
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Mini Tutorial de Flask</h1>
+
+<h2>Paso 1: Configura tu entorno</h2>
+<p>1. Crea un entorno virtual:</p>
+<pre><code>python -m venv venv</code></pre>
+<p>2. Activa el entorno virtual:</p>
+<pre><code>venv\Scripts\activate  # Windows</code></pre>
+<pre><code>source venv/bin/activate  # macOS/Linux</code></pre>
+<p>3. Instala Flask:</p>
+<pre><code>pip install Flask</code></pre>
+
+<h2>Paso 2: Crea la estructura del proyecto</h2>
+<p>Crea un archivo llamado <code>app.py</code> en la raíz de tu proyecto:</p>
+<pre><code>/mi_proyecto
+├── venv/
+└── app.py</code></pre>
+
+<h2>Paso 3: Escribe tu aplicación Flask</h2>
+<p>Abre <code>app.py</code> y escribe el siguiente código:</p>
+<pre><code>from flask import Flask, render_template, request, redirect, url_for
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+return '<h1>¡Hola, Flask!</h1>'
+
+@app.route('/about')
+def about():
+return '<h1>Acerca de</h1><p>Esta es una aplicación básica de Flask.</p>'
+
+@app.route('/form', methods=['GET', 'POST'])
+def form():
+if request.method == 'POST':
+    nombre = request.form['nombre']
+    return redirect(url_for('greeting', nombre=nombre))
+return '''
+    <form method="post">
+        Nombre: <input type="text" name="nombre">
+        <input type="submit" value="Enviar">
+    </form>
+
+@app.route('/greeting/<nombre>')
+def greeting(nombre):
+return f'<h1>Hola, {nombre}!</h1>'
+
+if __name__ == '__main__':
+app.run(debug=True)</code></pre>
+
+<h2>Paso 4: Ejecuta tu aplicación</h2>
+<p>En la terminal, asegúrate de que estás en la carpeta del proyecto y ejecuta:</p>
+<pre><code>python app.py</code></pre>
+
+<h2>Paso 5: Prueba tu aplicación</h2>
+<p>1. Abre tu navegador y ve a <code>http://127.0.0.1:5000/</code> para ver el mensaje de bienvenida.</p>
+<p>2. Ve a <code>http://127.0.0.1:5000/about</code> para ver la página "Acerca de".</p>
+<p>3. Dirígete a <code>http://127.0.0.1:5000/form</code> para enviar un nombre a través del formulario. Después de enviarlo, serás redirigido a una página de saludo personalizada.</p>
+
+<h2>Pasos Siguientes</h2>
+<p>Este es solo un tutorial básico. A partir de aquí, puedes:</p>
+<ul>
+    <li>Agregar una base de datos usando Flask-SQLAlchemy.</li>
+    <li>Manejar autenticación con Flask-Login.</li>
+    <li>Usar Flask-WTF para formularios más complejos.</li>
+    <li>Implementar rutas y controladores más avanzados.</li>
+</ul>
+
+<nav>
+    <a href="#">Inicio</a>
+</nav>
+    {% endblock %} 

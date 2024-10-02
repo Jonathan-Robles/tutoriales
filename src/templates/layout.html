@@ -4,28 +4,88 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CREDIJOB</title>
-    <style>span{ color:red; font-size: 25px}</style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>span{ color:red; font-size: 25px} body{margin:1em}
+/* Estilo general para el elemento <code> */
+  code {
+    font-family: 'Fira Code', monospace; /* Fuente moderna y monoespaciada */
+    background-color: #282c34; /* Fondo oscuro */
+    color: #61dafb; /* Color de texto brillante */
+    padding: 4px 8px; /* Espaciado interno */
+    border-radius: 4px; /* Bordes redondeados */
+    font-size: 95%; /* Tamaño de fuente ajustado */
+    border: 1px solid #61dafb; /* Borde colorido */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Sombra más marcada */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transiciones suaves */
+}
+
+/* Efecto hover para el elemento <code> */
+code:hover {
+    background-color: #61dafb; /* Fondo claro al pasar el ratón */
+    color: #282c34; /* Texto oscuro al pasar el ratón */
+}
+
+/* Para resaltar bloques de código más grandes */
+pre {
+    background-color: #1e1e1e; /* Fondo oscuro para bloques */
+    color: #ffffff; /* Texto blanco */
+    padding: 16px; /* Espaciado interno */
+    border-radius: 4px; /* Bordes redondeados */
+    overflow-x: auto; /* Permitir desplazamiento horizontal */
+    white-space: pre-wrap; /* Mantener los saltos de línea */
+    font-family: 'Fira Code', monospace; /* Fuente para el bloque de código */
+}
+
+/* Para resaltar líneas específicas (opcional) */
+.highlight-line {
+    background-color: rgba(255, 255, 0, 0.3); /* Fondo amarillo claro */
+}
+
+
+      
+    </style>
 
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">Logo</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
+        <li class="nav-item dropdown"></li>
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Python
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="entornos_virtuales_python">Entornos Virtuales Python</a></li>
+            <li><a class="dropdown-item" href="flask_tutorial">Flask</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown link
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="about">Abou</a>
+          <a class="nav-link" href="about">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
+          <a class="nav-link" href="#">Ent</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -41,6 +101,8 @@
     </div>
   </div>
 </nav>
+
+
 
 {% block content %}
 

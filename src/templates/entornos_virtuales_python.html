@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Tutorial de Entornos Virtuales en Python</h1>
+    
+    <p>Un entorno virtual en Python es una herramienta que ayuda a gestionar dependencias y versiones de paquetes para proyectos aislados, evitando conflictos entre librerías que puedan surgir cuando trabajas en diferentes proyectos en la misma máquina.</p>
+
+    <h2>1. Instalación de <code>venv</code></h2>
+    <p>La biblioteca estándar de Python incluye <code>venv</code> desde la versión 3.3 en adelante, por lo que no necesitas instalar nada adicional.</p>
+
+    <pre><code># Crear un entorno virtual
+python -m venv nombre_del_entorno
+
+# Activar el entorno virtual (Linux/MacOS)
+source nombre_del_entorno/bin/activate
+
+# Activar el entorno virtual (Windows)
+nombre_del_entorno\Script\activate
+</code></pre>
+
+    <h2>2. Instalación de paquetes dentro del entorno virtual</h2>
+    <p>Una vez activado el entorno, puedes instalar los paquetes de Python como de costumbre:</p>
+    
+    <pre><code>pip install nombre_del_paquete</code></pre>
+
+    <h2>3. Ver paquetes instalados</h2>
+    <p>Para ver qué paquetes están instalados en el entorno virtual:</p>
+
+    <pre><code>pip list</code></pre>
+
+    <h2>4. Guardar y cargar dependencias</h2>
+    <p>Para exportar las dependencias instaladas en el entorno a un archivo <code>requirements.txt</code>:</p>
+
+    <pre><code>pip freeze > requirements.txt</code></pre>
+
+    <p>Luego, para instalar las mismas dependencias en otro entorno, puedes usar:</p>
+
+    <pre><code>pip install -r requirements.txt</code></pre>
+
+    <h2>5. Desactivar el entorno virtual</h2>
+    <p>Cuando termines de trabajar en el proyecto, puedes desactivar el entorno virtual con:</p>
+
+    <pre><code>deactivate</code></pre>
+
+    <h2>6. Eliminar un entorno virtual</h2>
+    <p>Para eliminar un entorno virtual, simplemente borra la carpeta del entorno virtual (ya que es independiente):</p>
+
+    <pre><code>rm -rf nombre_del_entorno</code></pre>
+
+    <h2>7. Ventajas de los entornos virtuales</h2>
+    <ul>
+        <li><strong>Aislamiento</strong>: Cada proyecto tiene sus propias dependencias, lo que evita conflictos de versiones.</li>
+        <li><strong>Reproducibilidad</strong>: Puedes compartir tu proyecto junto con el archivo <code>requirements.txt</code>, lo que permite a otros instalar las mismas dependencias de forma sencilla.</li>
+    </ul>
+
+    <h2>8. Ejemplo Completo</h2>
+    <pre><code># Crear un entorno virtual
+python -m venv mi_entorno
+
+# Activar el entorno virtual
+source mi_entorno/bin/activate  # o mi_entorno\Scripts\activate en Windows
+
+# Instalar paquetes
+pip install requests flask
+
+# Ver paquetes instalados
+pip list
+
+# Guardar dependencias en requirements.txt
+pip freeze > requirements.txt
+
+# Desactivar el entorno virtual
+deactivate
+</code></pre>
+
+{% endblock %} 
